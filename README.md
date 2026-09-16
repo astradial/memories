@@ -4,7 +4,9 @@ Turn your photos into instant-camera prints with a handwritten note — right in
 
 **Live:** https://memories.astradial.com
 
-![Memories screenshot](docs/screenshot.png)
+![Your photos as instant-camera prints](docs/editor.jpg)
+
+![Home page](docs/home.jpg)
 
 ## Features
 
