@@ -124,6 +124,12 @@ const STEPS = [
   ['⬇️', 'Download or print', 'Save true-size PNGs or print on A4.'],
 ]
 
+const EXAMPLES: [string, string, string, number][] = [
+  ['goa', 'Goa sunset', 'Dec 2025', -2],
+  ['office', 'First office', 'Aug 2026', 1],
+  ['ooty', 'Ooty trip', 'May 2026', 2],
+]
+
 const UNSUPPORTED = "That file type isn't supported here — export it as JPEG first."
 
 export default function App() {
@@ -280,6 +286,19 @@ export default function App() {
           <label className="btn primary big">Select photos{fileInput}</label>
           <p className="or">or drop photos here</p>
           <p className="privacy">Your photos never leave your device.</p>
+          <div className="examples" aria-hidden>
+            {EXAMPLES.map(([img, note, date, tilt]) => (
+              <div key={img} className="card-wrap" style={{ '--tilt': `${tilt}deg` } as CSSProperties}>
+                <div className="card">
+                  <div className="photo"><img src={`/examples/${img}.svg`} alt="" /></div>
+                  <div className="strip">
+                    <span className="note">{note}</span>
+                    <span className="date">{date}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
           <ol className="steps">
             {STEPS.map(([icon, title, text]) => (
               <li key={title}>

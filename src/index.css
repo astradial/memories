@@ -68,6 +68,7 @@ button, input, label { font: inherit; }
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
+  text-decoration: none;
 }
 .btn:hover { background: #f9fafb; }
 .btn:disabled { opacity: 0.5; cursor: default; }
@@ -85,6 +86,14 @@ button, input, label { font: inherit; }
 .or { font-size: 14px !important; margin: 14px 0 0 !important; }
 .privacy { font-size: 13px; color: var(--muted); }
 .hero .privacy { margin: 6px 0 0 !important; }
+
+/* static example cards: reuse .card/.strip/.note/.date, scaled via a local --mm */
+.examples { --mm: 2.4px; display: flex; justify-content: center; gap: 20px; margin: 36px 0 0; pointer-events: none; }
+.examples .card { background: #fdfdfb; }
+@media (max-width: 520px) {
+  .examples { --mm: 1.4px; gap: 0; }
+  .examples .card-wrap + .card-wrap { margin-left: -24px; } /* fanned: 3 x 123 px - 48 px overlap fits 328 px */
+}
 
 .steps {
   list-style: none;
@@ -151,17 +160,17 @@ button, input, label { font: inherit; }
   justify-content: center;
   gap: calc(1 * var(--mm));
 }
-.strip input {
+.strip > * {
   width: 100%;
-  border: none;
-  background: transparent;
   text-align: center;
   font-family: Caveat, cursive;
   color: #1f2937;
   padding: 0;
-  outline: none;
   border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
 }
+.strip input { border: none; background: transparent; outline: none; }
 .strip input:focus { background: rgba(0, 0, 0, 0.05); }
 .note { font-size: calc(5.3 * var(--mm)); font-weight: 600; }
 .date { font-size: calc(3.2 * var(--mm)); color: #6b7280 !important; }
